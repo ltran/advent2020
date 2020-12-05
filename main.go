@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strconv"
-	"strings"
 
 	"github.com/ltran/advent2020/day1"
 	"github.com/ltran/advent2020/day2"
@@ -17,18 +15,12 @@ func main() {
 	fmt.Println("day2-1:", day2.CountValid("data/input2.txt", false))
 	fmt.Println("day2-1:", day2.CountValid("data/input2.txt", true))
 
-	fmt.Println("day3-1", day3.CountTrees("data/input3.txt", false))
-}
-
-func intstringToIntSlice(str string) []int {
-	strEntries := strings.Split(str, "\n")
-	entries := make([]int, len(strEntries))
-	for i, e := range strEntries {
-		entries[i], _ = strconv.Atoi(e)
-	}
-	return entries
-}
-
-func stringToStringSlice(str string) []string {
-	return strings.Split(str, "\n")
+	fmt.Println("day3-1", day3.CountForest("data/sample3.txt", []day3.Slope{{X: 3, Y: 1}}, true))
+	fmt.Println("day3-2", day3.CountForest("data/input3.txt", []day3.Slope{
+		{X: 1, Y: 1},
+		{X: 3, Y: 1},
+		{X: 5, Y: 1},
+		{X: 7, Y: 1},
+		{X: 1, Y: 2},
+	}, false))
 }
